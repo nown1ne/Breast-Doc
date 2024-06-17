@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Register">
+  <div class="centered-container my-20">
+    <h1>Sign Up</h1>
+    <p>Already have an account? <a href="/signin">Sign in</a></p>
+    <form action="api/auth/register" method="POST">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</BaseLayout>
+
+<style>
+  .centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 600px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10rem;
+  }
+</style>

@@ -1,0 +1,120 @@
+---
+const { cookies } = Astro;
+
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+const isAuthenticated = accessToken && refreshToken;
+---
+
+<section
+  aria-labelledby="navigation"
+  id="navigation"
+  class="overflow-hidden relatve bg-vulcan-700/0 border-b border-white/5 backdrop-blur-2xl lg:bg-vulcan-700/0 z-50 fixed w-full"
+>
+  <div class="w-full mx-auto relative">
+    <div
+      x-data="{ open: false }"
+      class="relative flex flex-col w-full py-5 px-8 mx-auto md:items-center md:justify-between md:flex-row md:px-12 lg:px-32"
+    >
+      <div
+        class="flex flex-row items-center justify-between text-vulcan-700 dark:text-white lg:justify-start"
+      >
+        <a href="/" class="lg:pr-8">
+          <div
+            class="inline-flex items-center gap-3 transition-all hover:scale-105"
+          >
+            <img
+              src="https://i.ibb.co/1ncQZ0h/breastdoclogo.png"
+              class="h-[50px] w-[50px]"
+              alt="breastdoclogo"
+            />
+            <p class="text-2xl">BreastDoc</p>
+          </div>
+        </a>
+        <div class="grow mr-1"></div>
+        <button
+          @click="open = !open"
+          class="inline-flex items-center justify-center p-2 text-vulcan-700 dark:text-white hover:text-indigo-400 focus:outline-none dark:focus:text-white md:hidden"
+        >
+          <svg
+            class="w-6 h-6"
+            stroke="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              :class="{ 'hidden': open, 'inline-flex': !open }"
+              class="inline-flex"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+            <path
+              :class="{ 'hidden': !open, 'inline-flex': open }"
+              class="hidden"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav
+        :class="{ 'flex': open, 'hidden': !open }"
+        class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row"
+      >
+        <a
+          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          href="/">ChatBot</a
+        >
+        <a
+          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          href="/">Questionaire</a
+        >
+        <a
+          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          href="/blog">Blog</a
+        >
+        <a
+          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          href="/yourblog">Add Blog</a
+        >
+        <a
+          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          href="/treatments">Treatments</a
+        >
+        <hr />
+        {
+          !isAuthenticated ? (
+            <>
+              <a
+                class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+                href="/register"
+              >
+                Sign Up
+              </a>
+              <a
+                class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+                href="/signin"
+              >
+                Sign In
+              </a>
+            </>
+          ) : (
+            <>
+              <form action="api/auth/signout" method="post" id="signout-form">
+                <button
+                  type="submit"
+                  class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+                >
+                  Sign Out
+                </button>
+              </form>
+            </>
+          )
+        }
+      </nav>
+    </div>
+  </div>
+</section>
