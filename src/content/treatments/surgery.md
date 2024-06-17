@@ -1,6 +1,7 @@
 ---
 title: "Surgery (Lumpectomy, Mastectomy)"
 description: "Surgical removal of breast tissue to treat cancer."
+tags: ["Post-menopausal", "50s", "40s"]
 heroImage: "https://media.istockphoto.com/id/1215880332/photo/a-surgeons-team-in-uniform-performs-an-operation-on-a-patient-at-a-cardiac-surgery-clinic.jpg?s=612x612&w=0&k=20&c=fRuUTSy_j2MMPI8yXuROJe4A8LwObO1-d8wSaHouSVI="
 ---
 

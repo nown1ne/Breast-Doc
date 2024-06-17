@@ -1,8 +1,7 @@
 ---
 title: "Hormone Therapy"
-id: "4"
 description: "Blocks hormones that fuel cancer growth."
-tags: "hormone therapy, breast cancer"
+tags: ["Pre-menopausal", "20s", "30s"]
 heroImage: "https://www.endocrine.org/-/media/endocrine/images/patient-engagement-webpage/condition-page-images/hormones/hormones_and_endocrine_function_1796x943.jpg"
 ---
 

@@ -1,8 +1,7 @@
 ---
 title: "Chemotherapy"
-id: 3
 description: "Use of drugs to kill cancer cells."
-tags: "chemotherapy, breast cancer"
+tags: ["Pre-menopausal", "20s", "30s"]
 heroImage: "https://images.everydayhealth.com/images/cancer/what-is-chemotherapy-722x406.jpg?sfvrsn=912570a9_1"
 ---
 

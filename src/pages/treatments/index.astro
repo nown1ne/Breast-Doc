@@ -1,13 +1,33 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { supabase } from "../../lib/supabase";
 
 type Props = CollectionEntry<"treatments">["data"];
 
 const { title } = Astro.props;
 const posts = await getCollection("treatments");
+
+const { data: surveyResponse, error } = await supabase
+  .from("survey_responses")
+  .select("tags")
+  .eq("user_id", "68dcabff-7e55-4f41-9b57-2056502158da")
+  .single();
+
+if (error) {
+  console.error("Error fetching survey responses:", error.message);
+}
+
+// Split the tags string into an array
+const userTags = surveyResponse?.tags?.split(",").map((tag) => tag.trim());
+console.log("User Tags:", userTags);
+// Filter the treatment options based on the user's tags
+const filteredPosts = posts.filter((post) => {
+  const postTags = post.data.tags || [];
+  console.log("Post Tags:", postTags);
+  return postTags.some((tag) => userTags?.includes(tag));
+});
 ---
 
 <BaseLayout pageTitle={title}>
@@ -27,16 +47,11 @@ const posts = await getCollection("treatments");
             class="grid md:grid-cols-3 grid-cols-1 mx-auto place-content-evenly justify-self-center content-around gap-8"
           >
             {
-              posts.map((post) => (
+              filteredPosts.map((post) => (
                 <div>
                   <a href={`/treatments/${post.slug}/`} class="no-underline">
-                    <img
-                      class="hero-image"
-                      src={post.data.heroImage}
-                      alt=""
-                    />
+                    <img class="hero-image" src={post.data.heroImage} alt="" />
                     <h4>{post.data.title}</h4>
-                    <p></p>
                   </a>
                 </div>
               ))
@@ -48,11 +63,10 @@ const posts = await getCollection("treatments");
   </section>
 </BaseLayout>
 
-
 <style>
-.hero-image {
-  width: 100%;
-  height: 200px; /* Set a fixed height */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-}
+  .hero-image {
+    width: 100%;
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
 </style>

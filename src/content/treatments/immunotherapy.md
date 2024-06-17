@@ -1,8 +1,7 @@
 ---
 title: "Immunotherapy"
-id: "6"
 description: "Uses the immune system to fight cancer."
-tags: "immunotherapy, breast cancer"
+tags: ["Pre-menopausal", "20s", "30s"]
 heroImage: "https://assets.newatlas.com/dims4/default/03e529f/2147483647/strip/true/crop/2000x1333+0+0/resize/2000x1333!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F39%2Ff0%2Fdf48dd224c8789e14f0b9adcd858%2Fdepositphotos-321601022-l-2015.jpg"
 ---
 
