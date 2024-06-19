@@ -1,0 +1,316 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<div class="mt-[80px] mb-[50px]">
+
+
+ 
+
+
+<div class="carousel-container" id="carousel-container">
+<span
+          class="text-transparent text-[20px] bg-clip-text font-medium tracking-widest bg-gradient-to-r from-pink-700 via-pink-500 to-indigo-700 dark:from-cyan-400 dark:via-teal-500 dark:to-indigo-500 text-s uppercase"
+          >Information Pills</span
+        >
+  <div class="carousel">
+    <div class="carousel-slide">
+      <h2>Specimen Information</h2>
+      <p><strong>Type of Specimen:</strong> 
+        <ul>
+          <li>Biopsy: A sample of tissue taken from the body for examination.</li>
+          <li>Lumpectomy: Surgical removal of a tumor and a small margin of surrounding tissue.</li>
+          <li>Mastectomy: Surgical removal of one or both breasts, partially or completely.</li>
+        </ul>
+      </p>
+      <p><strong>Location of Specimen:</strong> 
+        <ul>
+          <li>Left breast: Specimen taken from the left breast.</li>
+          <li>Right breast: Specimen taken from the right breast.</li>
+        </ul>
+      </p>
+      <p><strong>Number of Specimens Submitted:</strong> 
+        <ul>
+          <li>1 specimen: One tissue sample submitted for analysis.</li>
+          <li>2 specimens: Two tissue samples submitted for analysis.</li>
+          <li>3 or more specimens: Multiple tissue samples submitted for analysis.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Gross Description</h2>
+      <p><strong>Size of the Specimen:</strong> 
+        <ul>
+          <li>3 cm in diameter: A small-sized specimen.</li>
+          <li>4 cm in diameter: A medium-sized specimen.</li>
+        </ul>
+      </p>
+      <p><strong>Weight of the Specimen:</strong> 
+        <ul>
+          <li>20 grams: A lightweight specimen.</li>
+          <li>25 grams: A slightly heavier specimen.</li>
+        </ul>
+      </p>
+      <p><strong>Description of the Specimen:</strong> 
+        <ul>
+          <li>Pink, firm tissue with areas of necrosis: Describes the color, consistency, and presence of dead tissue areas.</li>
+          <li>Yellowish, soft tissue with multiple masses: Describes the color, consistency, and presence of multiple lumps.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Microscopic Description</h2>
+      <p><strong>Type of Cancer:</strong> 
+        <ul>
+          <li>Invasive ductal carcinoma: The most common type of breast cancer that begins in the milk ducts.</li>
+          <li>Invasive lobular carcinoma: Cancer that begins in the lobules (milk-producing glands).</li>
+          <li>Ductal carcinoma in situ (DCIS): A non-invasive cancer where abnormal cells are contained in the milk ducts.</li>
+        </ul>
+      </p>
+      <p><strong>Histologic Grade:</strong> 
+        <ul>
+          <li>Grade 1 - Well-differentiated: Cells look more like normal cells and tend to grow and spread slowly.</li>
+          <li>Grade 2 - Moderately differentiated: Cells look less like normal cells and grow slightly faster.</li>
+          <li>Grade 3 - Poorly differentiated: Cells look very different from normal cells and grow quickly.</li>
+        </ul>
+      </p>
+      
+    </div>
+    <div class="carousel-slide">
+    <h2>Microscopic Description</h2>
+    <p><strong>Tumor Size:</strong> 
+        <ul>
+          <li>1.5 cm: A small tumor.</li>
+          <li>2.3 cm: A medium-sized tumor.</li>
+        </ul>
+      </p>
+      <p><strong>Tumor Margins:</strong> 
+        <ul>
+          <li>Clear: No cancer cells at the edges, indicating complete removal of the tumor.</li>
+          <li>Positive: Cancer cells present at the edges, indicating incomplete removal of the tumor.</li>
+        </ul>
+      </p>
+      <p><strong>Lymphovascular Invasion:</strong> 
+        <ul>
+          <li>Present: Cancer cells found in blood vessels or lymph vessels.</li>
+          <li>Absent: No cancer cells found in blood vessels or lymph vessels.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Hormone Receptor Status</h2>
+      <p><strong>Estrogen Receptor (ER) Status:</strong> 
+        <ul>
+          <li>Positive: 75% of cells have estrogen receptors, indicating that the cancer may respond to hormonal therapy.</li>
+          <li>Negative: Less than 1% of cells have estrogen receptors, indicating that the cancer is unlikely to respond to hormonal therapy.</li>
+        </ul>
+      </p>
+      <p><strong>Progesterone Receptor (PR) Status:</strong> 
+        <ul>
+          <li>Positive: 60% of cells have progesterone receptors, indicating that the cancer may respond to hormonal therapy.</li>
+          <li>Negative: Less than 5% of cells have progesterone receptors, indicating that the cancer is unlikely to respond to hormonal therapy.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>HER2 Status</h2>
+      <p><strong>HER2/neu (Human Epidermal Growth Factor Receptor 2) Status:</strong> 
+        <ul>
+          <li>Positive: IHC score of 3+, indicating overexpression of HER2 protein, which can influence treatment decisions.</li>
+          <li>Negative: IHC score of 0, indicating no overexpression of HER2 protein.</li>
+          <li>Equivocal: IHC score of 2+ with FISH testing required to confirm the status.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Ki-67 Proliferation Index</h2>
+      <p><strong>Ki-67:</strong> 
+        <ul>
+          <li>30%: Indicates moderate cell division and may suggest a moderate growth rate of the tumor.</li>
+          <li>50%: Indicates high cell division and suggests a more aggressive tumor growth.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Tumor Markers</h2>
+      <p><strong>CA 15-3:</strong> 
+        <ul>
+          <li>Elevated: Common in breast cancer, used to monitor treatment response or recurrence.</li>
+          <li>Normal: Indicates no significant elevation of this tumor marker.</li>
+        </ul>
+      </p>
+      <p><strong>CA 27.29:</strong> 
+        <ul>
+          <li>Elevated: Indicates possible progression or recurrence of breast cancer.</li>
+          <li>Normal: Indicates no significant elevation of this tumor marker.</li>
+        </ul>
+      </p>
+      <p><strong>Other relevant tumor markers:</strong> 
+        <ul>
+          <li>CEA: Elevated in some cancers, can be used to monitor treatment response or recurrence.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Lymph Node Involvement</h2>
+      <p><strong>Number of Lymph Nodes Examined:</strong> 
+        <ul>
+          <li>10: A typical number of lymph nodes examined during surgery.</li>
+          <li>15: Indicates a more extensive examination of lymph nodes.</li>
+        </ul>
+      </p>
+      <p><strong>Number of Lymph Nodes Involved with Cancer:</strong> 
+        <ul>
+          <li>2: A small number of lymph nodes involved.</li>
+          <li>4: A moderate number of lymph nodes involved.</li>
+        </ul>
+      </p>
+      <p><strong>Size of Largest Metastasis in Lymph Node:</strong> 
+        <ul>
+          <li>1 cm: Indicates a small metastasis in the lymph node.</li>
+          <li>2 cm: Indicates a larger metastasis in the lymph node.</li>
+        </ul>
+      </p>
+    </div>
+    <div class="carousel-slide">
+      <h2>Molecular Testing</h2>
+      <p><strong>Genetic Mutations:</strong> 
+        <ul>
+          <li>BRCA1 positive: Indicates a genetic mutation associated with increased risk of breast and ovarian cancer.</li>
+          <li>BRCA2 positive: Indicates a genetic mutation with similar risk implications to BRCA1.</li>
+          <li>PIK3CA: Common mutation in various cancers, including breast cancer, and can influence treatment.</li>
+          <li>TP53: Mutation associated with many types of cancer, including breast cancer.</li>
+        </ul>
+      </p>
+      <p><strong>Genomic Assays:</strong> 
+        <ul>
+          <li>Oncotype DX: Provides information on the risk of recurrence and can help guide treatment decisions.</li>
+          <li>MammaPrint: Provides information on the risk of recurrence and can help guide treatment decisions.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+ 
+</div>
+</div>
+<script>
+  let currentSlide = 0;
+  let interval;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const totalSlides = slides.length;
+  
+  function showSlide(index) {
+    const offset = -(index * 50); // Shift by 50% to show two slides at a time
+    document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide === 0) ? totalSlides - 1 : currentSlide - 1;
+    showSlide(currentSlide);
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide === totalSlides - 2) ? 0 : currentSlide + 1;
+    showSlide(currentSlide);
+  }
+
+  // Auto slide
+  function startCarousel() {
+    interval = setInterval(nextSlide, 3000);
+  }
+
+  function stopCarousel() {
+    clearInterval(interval);
+  }
+
+  document.querySelector('.carousel-container').addEventListener('mouseenter', stopCarousel);
+  document.querySelector('.carousel-container').addEventListener('mouseleave', startCarousel);
+
+  // Initialize carousel
+  startCarousel();
+  showSlide(currentSlide);
+</script>
+
+<style>
+  .carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background:transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow:5px 5px 10px pink;
+
+  }
+
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-slide {
+    min-width: 50%; /* Change to 50% to show two slides at a time */
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    border:10px solid pink;
+    background:transparent;
+    
+  }
+
+  .carousel-slide h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .carousel-slide p {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #666;
+  }
+
+  .carousel-slide strong {
+    color: #000;
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .carousel-control.prev {
+    left: 10px;
+  }
+
+  .carousel-control.next {
+    right: 10px;
+  }
+
+  .carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media (min-width: 768px) {
+  /* Styles for larger screens */
+  .carousel-slide {
+    min-width: 50%; /* Show two slides at a time on larger screens */
+  }
+  
+}
+@media (max-width: 768px) {
+  /* Styles for larger screens */
+  .carousel-slide {
+    min-width: 100%; /* Show two slides at a time on larger screens */
+  }
+}
+</style>
