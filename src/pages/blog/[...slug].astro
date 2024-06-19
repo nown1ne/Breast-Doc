@@ -2,6 +2,7 @@
 export const prerender = true;
 import { type CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
+import { model } from "../../lib/gemini";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -10,11 +11,17 @@ export async function getStaticPaths() {
     props: post,
   }));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();
-const apiKey = import.meta.env.OPENAI_API_KEY;
+const blogContent = await Content.toString();
+const prompt = `You are an expert doctor. Please take the following content into account: ${blogContent}`;
+console.log(prompt);
+const result = await model.generateContent(prompt);
+const response = await result.response;
+const text = await response.text();
 ---
 
 <BlogPost {...post.data}>
@@ -24,7 +31,7 @@ const apiKey = import.meta.env.OPENAI_API_KEY;
   <!-- Chatbox -->
   <div class="chatbox mt-[50px]">
     <h1>Ask Your Doubts!</h1>
-    <form id="chatForm">
+    <form id="chatForm" data-initial-response={text}>
       <input
         type="text"
         id="chatInput"
@@ -43,7 +50,7 @@ const apiKey = import.meta.env.OPENAI_API_KEY;
   </div>
 </BlogPost>
 
-<script define:vars={{ apiKey }}>
+<script>
   const chatForm = document.getElementById("chatForm");
   const chatInput = document.getElementById("chatInput");
   const chatOutput = document.getElementById("chatOutput");
@@ -55,36 +62,27 @@ const apiKey = import.meta.env.OPENAI_API_KEY;
     if (question) {
       chatOutput.innerHTML += `<div class="question">You: ${question}</div>`;
       chatInput.value = "";
-
       const content = blogContent.innerText;
-      const prompt = `You are an expert doctor. Please take the following content into account and answer the question in simple English:
+      const prompt = `Question: ${question}`;
 
-${content}
+      const response = await fetch("/api/gemini", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt, blogContent: content }),
+      });
 
-Question: ${question}`;
-
-      const response = await fetch(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "system", content: prompt }],
-            max_tokens: 500,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      const answer = data.choices[0].message.content;
-      chatOutput.innerHTML += `<div class="answer">Claude: ${answer}</div>`;
+      if (response.ok) {
+        const answer = await response.text();
+        chatOutput.innerHTML += `<div class="answer">Claude: ${answer}</div>`;
+      } else {
+        chatOutput.innerHTML += `<div class="error">Error: ${response.status} ${response.statusText}</div>`;
+      }
     }
   });
 </script>
+
 <style>
   .chatbox {
     display: flex;
