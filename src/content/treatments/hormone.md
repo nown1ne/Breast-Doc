@@ -49,4 +49,10 @@ heroImage: "https://www.endocrine.org/-/media/endocrine/images/patient-engagemen
 - Often covered by insurance, making it more accessible for patients.
 - Improved quality of life by managing symptoms and reducing the need for more aggressive treatments.
 - Potential cost savings by preventing cancer recurrence and related healthcare expenses.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dFGRveYPmbc?si=vDV9fgUsjPRjxPVG" title="YouTube video player" frameborder="0" aallow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
+
+<div class="relative pt-[56.25%] mt-10 md:mt-12 lg:mt-16"><iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dFGRveYPmbc?si=vDV9fgUsjPRjxPVG" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
