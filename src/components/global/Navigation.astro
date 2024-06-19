@@ -24,12 +24,8 @@ const isAuthenticated = accessToken && refreshToken;
           <div
             class="inline-flex items-center gap-3 transition-all hover:scale-105"
           >
-            <img
-              src="https://i.ibb.co/1ncQZ0h/breastdoclogo.png"
-              class="h-[50px] w-[50px]"
-              alt="breastdoclogo"
-            />
-            <p class="text-2xl">BreastDoc</p>
+            <img src="/images/logo.png" class="h-16 w-16" alt="breastdoclogo" />
+            <p class="md:text-2xl text-3xl">BreastDoc</p>
           </div>
         </a>
         <div class="grow mr-1"></div>
@@ -38,7 +34,7 @@ const isAuthenticated = accessToken && refreshToken;
           class="inline-flex items-center justify-center p-2 text-vulcan-700 dark:text-white hover:text-indigo-400 focus:outline-none dark:focus:text-white md:hidden"
         >
           <svg
-            class="w-6 h-6"
+            class="w-10 h-10"
             stroke="currentColor"
             fill="none"
             viewBox="0 0 24 24"
@@ -62,26 +58,22 @@ const isAuthenticated = accessToken && refreshToken;
       </div>
       <nav
         :class="{ 'flex': open, 'hidden': !open }"
-        class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row"
+        class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row py-5 md:py-0 gap-6 md:gap-0"
       >
         <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
-          href="/">ChatBot</a
+          class="px-2 lg:px-6 py-2 md:px-3 text-xl md:text-base tracking-wider text-vulcan-700 dark:text-white dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          href="/chatbot">ChatBot</a
         >
         <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
-          href="/">Questionaire</a
-        >
-        <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          class="px-2 lg:px-6 py-2 md:px-3 text-xl md:text-base tracking-wider text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
           href="/blog">Blog</a
         >
         <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          class="px-2 lg:px-6 py-2 md:px-3 text-xl md:text-base tracking-wider text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
           href="/yourblog">Add Blog</a
         >
         <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+          class="px-2 lg:px-6 py-2 md:px-3 text-xl md:text-base tracking-wider text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
           href="/treatments">Treatments</a
         >
         <hr />
@@ -89,13 +81,13 @@ const isAuthenticated = accessToken && refreshToken;
           !isAuthenticated ? (
             <>
               <a
-                class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+                class="px-2 lg:px-6 py-2 md:px-3 text-xl  md:text-base tracking-wider text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
                 href="/register"
               >
                 Sign Up
               </a>
               <a
-                class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+                class="px-2 lg:px-6 py-2 md:px-3 text-xl  md:text-base tracking-wider text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
                 href="/signin"
               >
                 Sign In
@@ -106,7 +98,7 @@ const isAuthenticated = accessToken && refreshToken;
               <form action="api/auth/signout" method="post" id="signout-form">
                 <button
                   type="submit"
-                  class="px-2 lg:px-6 py-2 md:px-3 text-md text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
+                  class="px-2 lg:px-6 py-2 md:px-3 text-xl  md:text-base tracking-wider text-vulcan-700 dark:text-white font-normal dark:hover:text-white/50 hover:text-vulcan-900 transition-all hover:scale-105"
                 >
                   Sign Out
                 </button>

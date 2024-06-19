@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"treatments">["data"];
@@ -18,7 +17,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             alt=""
             style={{
               width: "100%",
-              height: "60vh",
+              height: "70vh",
               objectFit: "cover",
             }}
           />

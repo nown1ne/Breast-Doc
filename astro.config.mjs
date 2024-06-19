@@ -8,5 +8,14 @@ export default defineConfig({
   site: "https://breastdoc.vercel.app",
   output: "server",
   adapter: vercel(),
+  markdown: {
+    drafts: true,
+    shikiConfig: { theme: "css-variables" },
+  },
+  shikiConfig: {
+    wrap: true,
+    skipInline: false,
+    drafts: true,
+  },
   integrations: [tailwind(), solidJs()],
 });
