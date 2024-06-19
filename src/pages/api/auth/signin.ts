@@ -20,11 +20,16 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   }
 
   const { access_token, refresh_token } = data.session;
+  const { data: { user } } = await supabase.auth.getUser()
+  console.log(user)
   cookies.set("sb-access-token", access_token, {
     path: "/",
   });
   cookies.set("sb-refresh-token", refresh_token, {
     path: "/",
   });
+    cookies.set("user-id", user.id, {
+      path: "/",
+    });
   return redirect("/");
 };

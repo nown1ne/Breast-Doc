@@ -3,6 +3,9 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { supabase } from "../../lib/supabase";
+const { cookies } = Astro;
+const userCookie = cookies.get("user-id");
+const userId = userCookie ? userCookie.value : null;
 
 type Props = CollectionEntry<"treatments">["data"];
 
@@ -12,7 +15,7 @@ const posts = await getCollection("treatments");
 const { data: surveyResponse, error } = await supabase
   .from("survey")
   .select("tags")
-  .eq("user_id", "68dcabff-7e55-4f41-9b57-2056502158da")
+  .eq("user_id", userId)
   .single();
 
 if (error) {
