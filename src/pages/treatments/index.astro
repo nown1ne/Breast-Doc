@@ -10,7 +10,7 @@ const { title } = Astro.props;
 const posts = await getCollection("treatments");
 
 const { data: surveyResponse, error } = await supabase
-  .from("survey_responses")
+  .from("survey")
   .select("tags")
   .eq("user_id", "68dcabff-7e55-4f41-9b57-2056502158da")
   .single();
