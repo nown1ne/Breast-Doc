@@ -27,7 +27,6 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     .from("survey")
     .select("*")
     .eq("user_id", user.id)
-    .single();
 
   const redirectUrl = surveyData ? "/" : "/survey"; // Redirect to /survey if no survey data found
 
