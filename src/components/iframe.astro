@@ -1,0 +1,21 @@
+---
+const { cookies } = Astro;
+const userCookie = cookies.get("user-id");
+const userId = userCookie ? userCookie.value : null;
+
+const flaskAppUrl = `https://ge-final.vercel.app/?user_id=${userId}`;
+---
+
+{
+  userId ? (
+    <iframe
+      src={flaskAppUrl}
+      width="100%"
+      height="1200"
+      frameborder="0"
+      allow="fullscreen"
+    />
+  ) : (
+    <p>Loading...</p>
+  )
+}

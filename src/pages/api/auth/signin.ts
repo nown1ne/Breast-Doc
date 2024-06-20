@@ -21,15 +21,25 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
 
   const { access_token, refresh_token } = data.session;
   const { data: { user } } = await supabase.auth.getUser()
-  console.log(user)
+
+  // Check if the user has a record in the 'survey' table
+  const { data: surveyData, error: surveyError } = await supabase
+    .from("survey")
+    .select("*")
+    .eq("user_id", user.id)
+    .single();
+
+  const redirectUrl = surveyData ? "/" : "/survey"; // Redirect to /survey if no survey data found
+
   cookies.set("sb-access-token", access_token, {
     path: "/",
   });
   cookies.set("sb-refresh-token", refresh_token, {
     path: "/",
   });
-    cookies.set("user-id", user.id, {
-      path: "/",
-    });
-  return redirect("/");
+  cookies.set("user-id", user.id, {
+    path: "/",
+  });
+
+  return redirect(redirectUrl);
 };
