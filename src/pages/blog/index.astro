@@ -28,7 +28,6 @@ const userTags = surveyResponse?.tags?.split(",").map((tag) => tag.trim());
 console.log("User Tags:", userTags);
 
 let filteredPosts = posts;
-let isPersonalized = false;
 
 filteredPosts = posts.filter((post) => {
   const postTags = post.data.tags || [];
@@ -132,20 +131,6 @@ filteredPosts = posts.filter((post) => {
         >
           Knowledge Corner
         </div>
-        <div class="flex items-center">
-          <label
-            for="personalized-toggle"
-            class="mr-2 text-gray-700 dark:text-gray-300"
-          >
-            Personalized
-          </label>
-          <input
-            id="personalized-toggle"
-            type="checkbox"
-            class="toggle-checkbox"
-            checked={isPersonalized}
-          />
-        </div>
       </div>
       <div
         class="max-w-4xl mx-auto prose dark:prose-blockquote:border-l-white prose-blockquote:border-l-slate-200 dark:prose-a:text-cyan-400/90 prose-a:text-cyan-600 dark:hover:prose-a:text-white hover:prose-a:text-vulcan-700 prose-headings:font-normal dark:prose-headings:text-white prose-headings:text-vulcan-700 prose-li:marker:text-cyan-500 dark:text-slate-400 text-gray-600 dark:prose-code:text-white prose-code:vulcan-700 prose-blockquote:text-white/70"
@@ -155,7 +140,7 @@ filteredPosts = posts.filter((post) => {
             class="grid md:grid-cols-3 grid-cols-1 mx-auto place-content-evenly justify-self-center content-around gap-10"
           >
             {
-              filteredPosts.map((post) => (
+              posts.map((post) => (
                 <div class="rounded-2xl border border-rose-100 bg-rose-50/30 shadow-sm pb-2 relative">
                   <a href={`/blog/${post.slug}/`} class="no-underline fcjcic">
                     <img
