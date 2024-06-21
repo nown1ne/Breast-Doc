@@ -28,7 +28,8 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     .select("*")
     .eq("user_id", user.id)
 
-  const redirectUrl = surveyData ? "/" : "/survey"; // Redirect to /survey if no survey data found
+const redirectUrl = (surveyData && surveyData.length > 0) ? "/" : "/survey";
+// Redirect to /survey if no survey data found
 
   cookies.set("sb-access-token", access_token, {
     path: "/",
